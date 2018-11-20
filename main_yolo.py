@@ -70,9 +70,9 @@ if __name__ == '__main__':
     parser.add_argument('--dont_use_crop', type=bool, default=False, help='whether to use cropped data')
     args = parser.parse_args()
     
-    from models import *
-    from utils.utils import *
-    from utils.datasets import *
+    from PyTorch-YOLOv3.models import *
+    from PyTorch-YOLOv3.utils.utils import *
+    from PyTorch-YOLOv3.utils.datasets import *
     cuda = torch.cuda.is_available() 
     
     
