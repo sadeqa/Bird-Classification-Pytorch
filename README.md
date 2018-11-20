@@ -17,11 +17,10 @@ We will be using a dataset containing 200 different classes of birds adapted fro
 Download the training/validation/test images from [here](https://www.di.ens.fr/willow/teaching/recvis18/assignment3/bird_dataset.zip). The test image labels are not provided.
 
 #### Training and validating your model
-Run the script `main.py` to train your model.
+Run the script `main_yolo.py` to train your model.
 
-Modify `main.py`, `model.py` and `data.py` for your assignment, with an aim to make the validation score better.
-
-- By default the images are loaded and resized to 64x64 pixels and normalized to zero-mean and standard deviation of 1. See data.py for the `data_transforms`.
+- By default the images are loaded and resized to 299x299 pixels and normalized to zero-mean and standard deviation of 1. See data.py for the `data_transforms`.
+- The default arguments of main_yolo.py will git clone and use the yolo_v3 architecture to crop the image datasets and create a new folder and then train the model.
 
 #### Evaluating your model on the test set
 
@@ -36,3 +35,4 @@ That generates a file `kaggle.csv` that you can upload to the private kaggle com
 
 #### Acknowledgments
 Adapted from Rob Fergus and Soumith Chintala https://github.com/soumith/traffic-sign-detection-homework.
+
