@@ -39,17 +39,17 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='RecVis A3 training script')
     parser.add_argument('--data', type=str, default='./bird_dataset', metavar='D',
                         help="folder where data is located. train_images/ and val_images/ need to be found in the folder")
-    parser.add_argument('--batchsize', type=int, default=64, metavar='B',
-                        help='input batch size for training (default: 64)')
-    parser.add_argument('--epochs', type=int, default=10, metavar='N',
-                        help='number of epochs to train (default: 10)')
+    parser.add_argument('--batchsize', type=int, default=256, metavar='B',
+                        help='input batch size for training (default: 256)')
+    parser.add_argument('--epochs', type=int, default=80, metavar='N',
+                        help='number of epochs to train (default: 80)')
     parser.add_argument('--lr', type=float, default=0.1, metavar='LR',
                         help='learning rate (default: 0.01)')
-    parser.add_argument('--momentum', type=float, default=0.5, metavar='M',
-                        help='SGD momentum (default: 0.5)')
+    parser.add_argument('--momentum', type=float, default=0.9, metavar='M',
+                        help='SGD momentum (default: 0.9)')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
                         help='random seed (default: 1)')
-    parser.add_argument('--log-interval', type=int, default=10, metavar='N',
+    parser.add_argument('--log-interval', type=int, default=3, metavar='N',
                         help='how many batches to wait before logging training status')
     parser.add_argument('--experiment', type=str, default='experiment', metavar='E',
                         help='folder where experiment outputs are located.')
@@ -258,7 +258,7 @@ if __name__ == '__main__':
     #optimizer = optim.SGD(list(model.module.res.fc.parameters()) + list(model.module.res.layer4.parameters())  +list(model.module.res2.fc.parameters()) + list(model.module.res2.layer4.parameters())  #+ list(model.module.res2.layer4.parameters()) 
                           #, lr=args.lr, momentum=args.momentum )
     optimizer = optim.SGD(model.parameters() , lr=args.lr, momentum=args.momentum )
-#     scheduler = MultiStepLR(optimizer, milestones=[25,40,65], gamma=0.1)
+    scheduler = MultiStepLR(optimizer, milestones=[40], gamma=0.1)
 
 
 
@@ -303,7 +303,7 @@ if __name__ == '__main__':
 
 
     for epoch in range(1, args.epochs + 1):
-#         scheduler.step()
+        scheduler.step()
         train(epoch)
         validation()
         model_file = args.experiment + '/model_' + str(epoch) + '.pth'
