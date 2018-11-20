@@ -180,7 +180,7 @@ if __name__ == '__main__':
 
                                 path=path.split("/")[-1]
                     # Save generated image with detections
-                                if data_type == 'test_images' : 
+                                if data_type == '/test_images' : 
                                     plt.imsave(args.output+data_type+'/'+folder+'/'+path, img1)
                                     plt.close()
                                 else : 
