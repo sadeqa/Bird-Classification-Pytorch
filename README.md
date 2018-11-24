@@ -36,3 +36,7 @@ That generates a file `kaggle.csv` that you can upload to the private kaggle com
 #### Acknowledgments
 Adapted from Rob Fergus and Soumith Chintala https://github.com/soumith/traffic-sign-detection-homework.
 
+This was an assignment part of the Objec Recognition class in the MVA masters by : Jean Ponce, Ivan Laptev, Cordelia Schmid and Josef Sivic. 
+
+Class link : https://www.di.ens.fr/willow/teaching/recvis18/
+
